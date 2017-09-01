@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Models.Commons;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -13,12 +15,27 @@ namespace ClientWebTestProject
         {
             using (var client = new HttpClient())
             {
-                var id = 10;
-
+                var person = new Person()
+                {
+                    CPF = "060525444-54",
+                    Name= "Jeferson",
+                    Old= 34,
+                    Surname = "Anjos",
+                    Telephone="31974478747"
+                };
+                Console.WriteLine("Pressone enter para cadastrar a pessoa");
                 Console.ReadLine();
-                var expectresult = client.GetStringAsync($"http://localhost:8080/v1/persons");
-                var result = expectresult.Result;
-                Console.WriteLine(result);
+                var result = client.PostAsJsonAsync("http://localhost:8080/v1/persons", person).Result;
+                
+                //string com o json do person
+                var getperson = client.GetStringAsync($"http://localhost:8080/v1/persons/0").Result;
+
+                //converter para object
+                var personResult = JsonConvert.DeserializeObject<Person>(getperson);
+
+                Console.WriteLine($"Name: {personResult.Name} {personResult.Surname}");
+                Console.WriteLine($"CPF: {personResult.CPF}");
+
                 Console.ReadLine();
             }
 

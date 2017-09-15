@@ -119,6 +119,18 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\IInfra\IInfra.csproj">
+      <Project>{b3c10506-ea3d-4528-91e1-18f02cdab368}</Project>
+      <Name>IInfra</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IModels.Commons\IModels.Commons.csproj">
+      <Project>{3d7907b6-cbc5-4df2-971b-ce2c44564dce}</Project>
+      <Name>IModels.Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infra\Infra.csproj">
+      <Project>{6d9eabb7-faa2-4455-90a2-5d88d9089703}</Project>
+      <Name>Infra</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Models.Commons\Models.Commons.csproj">
       <Project>{b270f0a8-b440-47e8-9570-92c9272ba7cc}</Project>
       <Name>Models.Commons</Name>

@@ -1,4 +1,7 @@
-﻿using Models.Commons;
+﻿using IInfra;
+using IModels.Commons;
+using Infra;
+using Models.Commons;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +17,12 @@ namespace WebTestProject.Controllers
     {
         private string Name { get; set; }
         private static IList<Person> _persons = new List<Person>();
+        private IPersonDataAccess _personDataAccces;
+
+        public PersonsController()
+        {
+            _personDataAccces = new PersonDataAccess();
+        }
 
         [Route("{id}/name")]
         [HttpGet]
@@ -40,9 +49,10 @@ namespace WebTestProject.Controllers
 
         [Route("{id}")]
         [HttpGet]
-        public Person GetPersons(int id)
+        public IPerson GetPersons(int id)
         {
-            return _persons[id];
+            return _personDataAccces.Get(id);
+            //return _persons[id];
         }
 
         [Route]

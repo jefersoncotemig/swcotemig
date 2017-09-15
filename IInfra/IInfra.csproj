@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B270F0A8-B440-47E8-9570-92C9272BA7CC}</ProjectGuid>
+    <ProjectGuid>{B3C10506-EA3D-4528-91E1-18F02CDAB368}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Models.Commons</RootNamespace>
-    <AssemblyName>Models.Commons</AssemblyName>
+    <RootNamespace>IInfra</RootNamespace>
+    <AssemblyName>IInfra</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,8 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Person.cs" />
+    <Compile Include="IPersonDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IModels.Commons\IModels.Commons.csproj">
+      <Project>{3d7907b6-cbc5-4df2-971b-ce2c44564dce}</Project>
+      <Name>IModels.Commons</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

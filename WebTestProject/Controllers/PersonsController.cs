@@ -19,9 +19,9 @@ namespace WebTestProject.Controllers
         private static IList<Person> _persons = new List<Person>();
         private IPersonDataAccess _personDataAccces;
 
-        public PersonsController()
+        public PersonsController(IPersonDataAccess personDataAccces)
         {
-            _personDataAccces = new PersonDataAccess();
+            _personDataAccces = personDataAccces;
         }
 
         [Route("{id}/name")]
